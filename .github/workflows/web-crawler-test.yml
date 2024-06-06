@@ -84,8 +84,7 @@ jobs:
         with:
           repository: "GovTechSG/purple-a11y"
           ref: "${{ github.event.inputs.A11Y_ENGINE_BRANCH }}"
-      - name: List /app Folder
-        run: docker exec purple-a11y-container ls -l /app
+     
 
       - name: Build and run Docker container
         run: |
@@ -95,7 +94,8 @@ jobs:
           docker run -dit --name purple-a11y-container purple-a11y
         # Ensure the Docker container is running before running the next step
         continue-on-error: true
-  
+      - name: List /app Folder
+        run: docker exec purple-a11y-container ls -l /app
       - name: Start accessibility scan in Docker container
         run: |
           # Execute a webisite crawl
