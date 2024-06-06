@@ -104,8 +104,6 @@ jobs:
       - name: Print errors
         run: |
           docker exec purple-a11y-container cat errors.txt || true
-      - name: List /app Folder
-        run: docker exec purple-a11y-container ls -l /app
         
       - name: Print logs
         run: |
