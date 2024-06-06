@@ -84,7 +84,9 @@ jobs:
         with:
           repository: "GovTechSG/purple-a11y"
           ref: "${{ github.event.inputs.A11Y_ENGINE_BRANCH }}"
-          
+      - name: List /app Folder
+        run: docker exec purple-a11y-container ls -l /app
+
       - name: Build and run Docker container
         run: |
           # Build your Docker image (replace 'purple-a11y' and 'Dockerfile' with your image name and Dockerfile path)
